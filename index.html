@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+
+        body {
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:lightgrey;
+        }
+        .login-form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background:lightgreen;
+            color: white;
+            font-size: 16px;
+        }
+        .login-form button:hover {
+            background: rgb(210, 232, 210);
+        }
+        .toggle-password {
+            cursor: pointer;
+            color:blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" placeholder="Enter your username">
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password">
+    <span class="toggle-password" id="togglePassword">Show Password</span>
+    
+    <button id="loginButton">Login</button>
+</div>
+
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const passwordField = document.getElementById('password');
+        const toggleText = document.getElementById('togglePassword');
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleText.textContent = 'Hide Password';
+        } else {
+            passwordField.type = 'password';
+            toggleText.textContent = 'Show Password';
+        }
+    });
+
+    document.getElementById('loginButton').addEventListener('click', function() {
+        const username = document.getElementById('username').value;
+        if (username.trim() === '') {
+            alert('The Username is required');
+        } else {
+            alert(`Welcome ${username}!`);
+        }
+    });
+</script>
+
+</body>
+</html>
